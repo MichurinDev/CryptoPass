@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>328</width>
-    <height>285</height>
+    <width>336</width>
+    <height>279</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>CryptoPass</string>
   </property>
   <property name="windowOpacity">
-   <double>0.9</double>
+   <double>0.900000000000000</double>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="frame">
@@ -200,18 +200,20 @@
      </property>
     </widget>
    </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>240</y>
+      <width>311</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Password Manager</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>328</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
