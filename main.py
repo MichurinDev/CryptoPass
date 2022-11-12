@@ -19,8 +19,9 @@ class MainWidget(QMainWindow, MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.pushButton.clicked.connect(self.generate)
-        self.pushButton_2.clicked.connect(self.loadPaswMngWin)
+
+        self.pushButton.clicked.connect(self.generate)  # Генерируется пароль
+        self.pushButton_2.clicked.connect(self.loadPaswMngWin)  # Тыкаем - запускается менеджер паролей
 
     def generate(self):
         global password
@@ -31,10 +32,10 @@ class MainWidget(QMainWindow, MainWindow):
         if (True in [bool(cb.checkState()) for cb in CHECK_BOXES]):  # Если хотя бы одно отмечено галочкой
             for i in range(len(CHECK_BOXES)):
                 if bool(CHECK_BOXES[i].checkState()):
-                    symb_line += SYMBOLYC_DICTIONARY[i]
+                    symb_line += SYMBOLYC_DICTIONARY[i]  # Добавляем в строку символов символы, выбранных списков
             
             self.textEdit.setText(password_generate(symb_line, self.spinBox.value()))  # Генерируем пароль и выводим его в textEdit
-            password = self.textEdit.toPlainText()
+            password = self.textEdit.toPlainText()  # Сохраняем сгенерированный пароль в глобальную переменную
 
     def loadPaswMngWin(self):
         dialog = PasswordManagerWidget(self)
@@ -46,8 +47,9 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
         super(PasswordManagerWidget, self).__init__(parent)
         self.setupUi(self)
         
-        self.textEdit_3.setText(password)
-        self.reloadTable()
+        self.textEdit_3.setText(password)  # Задаем значение текстового поля с вводом пароля сгенерированным паролем
+        self.reloadTable()  # Подгружаем таблицу формы
+
         self.pushButton.clicked.connect(self.addToDB)
 
     def addToDB(self):
@@ -69,16 +71,18 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
             sql.execute(f"INSERT INTO {db_name} VALUES (?, ?, ?)", (user_web, user_login, user_password))  # Вносим :)
             db.commit()
 
-        self.reloadTable()
+        self.reloadTable()  # Обновляем таблицу формы
 
     def reloadTable(self):
         """
         Функция, которая будет обновлять таблицу в форме,
         в которую подгружаются данные из таблицы базы данных
         """
-        VALUE = list(sql.execute(f"SELECT * FROM {db_name}"))
-        RowCount = len(VALUE)
 
+        VALUE = list(sql.execute(f"SELECT * FROM {db_name}"))  # Выгруженная в список таблица
+        RowCount = len(VALUE)  # Кол-во строчек
+
+        # Создаем в форме таблицу 3 * RowCount
         table = self.tableWidget
         table.setColumnCount(3)
         table.setRowCount(RowCount)
@@ -126,7 +130,7 @@ SYMBOLYC_DICTIONARY = [
     '''@/*#!$%^?\[]-_)+=;`~.,<>'"|'''
 ]
 
-password = ""
+password = ""  # Глобальная переменная  паролем, чтобы передавать его между формами
 
 # Адаптация под экраны с высоким разрешением
 if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
