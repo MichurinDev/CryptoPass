@@ -1,2 +1,2 @@
 # CryptoPass
-Project for «Yandex.Lyceum»
+Project for «Yandex. Lyceum»
