@@ -65,7 +65,13 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
         self.textEdit_3.setText(password)  # Задаем значение текстового поля с вводом пароля сгенерированным паролем
         self.reloadTable()  # Подгружаем таблицу формы
 
-        self.pushButton.clicked.connect(self.addToDB)
+        self.pushButton.clicked.connect(self.addToDB)  # Тыкаем - добавляем новую строку
+        self.pushButton_2.clicked.connect(self.clearDB)
+
+    def clearDB(self):
+        sql.execute(f"DELETE FROM {table_name}")
+        db.commit()
+        self.reloadTable()
 
     def addToDB(self):
         """
@@ -77,8 +83,8 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
         user_login = self.textEdit_2.toPlainText()
         user_password = self.textEdit_3.toPlainText()
 
-        sql.execute(f"SELECT login FROM {db_name}")
-        for web, login, _ in sql.execute(f"SELECT * FROM {db_name}"): # Пробегаемся по всем строкам
+        sql.execute(f"SELECT login FROM {table_name}")
+        for web, login, _ in sql.execute(f"SELECT * FROM {table_name}"): # Пробегаемся по всем строкам
             if login == user_login and web == user_web:  # Если такая пара сайт-логин внесена
                 # Выдаем ошибку
                 showMessageBox(
@@ -87,7 +93,7 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
                     "Critical")
                 break
         else:  # А если нет..
-            sql.execute(f"INSERT INTO {db_name} VALUES (?, ?, ?)", (user_web, user_login, user_password))  # Вносим :)
+            sql.execute(f"INSERT INTO {table_name} VALUES (?, ?, ?)", (user_web, user_login, user_password))  # Вносим :)
             db.commit()
 
         self.reloadTable()  # Обновляем таблицу формы
@@ -98,7 +104,7 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
         в которую подгружаются данные из таблицы базы данных
         """
 
-        VALUE = list(sql.execute(f"SELECT * FROM {db_name}"))  # Выгруженная в список таблица
+        VALUE = list(sql.execute(f"SELECT * FROM {table_name}"))  # Выгруженная в список таблица
         RowCount = len(VALUE)  # Кол-во строчек
 
         # Создаем в форме таблицу 3 * RowCount
@@ -126,12 +132,14 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
 
 
 # Подключаемся к БД
-db = SQL.connect("PasswordManagerDB.db")  # Файл БД
-sql = db.cursor()
-db_name = "PasswordManager"  # Название таблицы в БД
+db_name = "PasswordManagerDB.db"  # Название БД
+table_name = "PasswordManager"  # Название таблицы в БД
 
-# Если таблица <db_name> не создана - создаем
-sql.execute(f"""CREATE TABLE IF NOT EXISTS {db_name} (
+db = SQL.connect(db_name)  # Файл БД
+sql = db.cursor()
+
+# Если таблица <table_name> не создана - создаем
+sql.execute(f"""CREATE TABLE IF NOT EXISTS {table_name} (
     web TEXT,
     login TEXT,
     password TEXT
