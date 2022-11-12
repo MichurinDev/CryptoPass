@@ -14,7 +14,7 @@
    <string>CryptoPass</string>
   </property>
   <property name="windowOpacity">
-   <double>0.750000000000000</double>
+   <double>0.9</double>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="frame">

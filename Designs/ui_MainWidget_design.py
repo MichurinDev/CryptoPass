@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\Prog\Python\CryptoPass\main.ui'
+# Form implementation generated from reading ui file 'd:\Prog\Python\CryptoPass\Designs\MainWidget_design.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(328, 285)
-        MainWindow.setWindowOpacity(0.75)
+        MainWindow.setWindowOpacity(0.9)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)

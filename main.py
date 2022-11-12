@@ -2,13 +2,18 @@
 import sys
 
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from ui_file import Ui_MainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QGridLayout, QWidget, QTableWidget, QTableWidgetItem
+from PyQt5.QtCore import Qt
 
-from random import choice
+from PasswordGenerator import password_generate  # Модуль с функцией-генератором пароля
+
+# Подгружаем формы
+from Designs.ui_MainWidget_design import Ui_MainWindow as MainWindow
+from Designs.ui_PasswordManagerWidget_design import Ui_MainWindow as PswMngWindow
+
 
 # Создаём класс с окном, подгружая дизайн из конвертированного (.ui -> .py) py-файла
-class MyWidget(QMainWindow, Ui_MainWindow):
+class MainWidget(QMainWindow, MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -22,18 +27,35 @@ class MyWidget(QMainWindow, Ui_MainWindow):
             for i in range(len(CHECK_BOXES)):
                 if bool(CHECK_BOXES[i].checkState()):
                     symb_line += SYMBOLYC_DICTIONARY[i]
-        
-        self.textEdit.setText(password_generate(symb_line, self.spinBox.value()))  # Генерируем пароль и выводим его в textEdit
+            
+            self.textEdit.setText(password_generate(symb_line, self.spinBox.value()))  # Генерируем пароль и выводим его в textEdit
 
 
-# Функция генератора пароля
-def password_generate(symb_line: str, counter: int):
-    password = ""  # Создаем строку для пароля
+class PasswordManagerWidget(QMainWindow, PswMngWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
 
-    for _ in range(counter):
-        password += choice(symb_line)  # Рандомно выбираем counter символов из строки symb_line
+        RowCount = int(input("Введите кличество строк:\n>> "))
 
-    return password  # Возвращаем сгенерированный пароль
+        table = self.tableWidget
+        table.setColumnCount(3)
+        table.setRowCount(RowCount)
+ 
+        # Задаём заголовки таблицы
+        table.setHorizontalHeaderLabels(["Web", "Login", "Password"])
+ 
+        # Задаем положение текста
+        table.horizontalHeaderItem(0).setTextAlignment(Qt.AlignLeft)
+        table.horizontalHeaderItem(1).setTextAlignment(Qt.AlignLeft)
+ 
+        # Вставляем значения в ячейки
+        for i in range(RowCount):
+            table.horizontalHeaderItem(0).setToolTip("Column 1 ")
+            table.horizontalHeaderItem(1).setToolTip("Column 2 ")
+
+            table.setItem(i, 0, QTableWidgetItem(f"Text in row {i + 1}"))
+            table.setItem(i, 1, QTableWidgetItem(f"Text in row {i + 1}"))
 
 
 #  Списки с символома для генерации паролей
@@ -46,7 +68,6 @@ SYMBOLYC_DICTIONARY = [
     '''@/*#!$%^?\[]-_)+=;`~.,<>'"|'''
 ]
 
-
 # Адаптация под экраны с высоким разрешением
 if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
     QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
@@ -54,10 +75,9 @@ if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
 if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
     QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
 
-
 # Запускаем сие чудо
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = MyWidget()
+    ex = MainWidget()
     ex.show()
     sys.exit(app.exec_())
