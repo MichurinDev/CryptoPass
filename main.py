@@ -8,6 +8,7 @@ from PyQt5.QtCore import Qt
 import sqlite3 as SQL
 
 from PasswordGenerator import password_generate  # Модуль с функцией-генератором пароля
+from AlertWindow import showMessageBox
 
 # Подгружаем формы
 from Designs.ui_MainWidget_design import Ui_MainWindow as MainWindow
@@ -26,7 +27,15 @@ class MainWidget(QMainWindow, MainWindow):
     def generate(self):
         global password
 
-        CHECK_BOXES = [self.checkBox, self.checkBox_2, self.checkBox_3, self.checkBox_4, self.checkBox_5, self.checkBox_6]  # Все checkbox окна
+        CHECK_BOXES = [
+            self.checkBox,
+            self.checkBox_2,
+            self.checkBox_3,
+            self.checkBox_4,
+            self.checkBox_5,
+            self.checkBox_6
+        ]  # Все checkbox окна
+
         symb_line = ""  # Строка, состоящая из симвлов, из которых будет генерироваться пароль
 
         if (True in [bool(cb.checkState()) for cb in CHECK_BOXES]):  # Если хотя бы одно отмечено галочкой
@@ -36,6 +45,12 @@ class MainWidget(QMainWindow, MainWindow):
             
             self.textEdit.setText(password_generate(symb_line, self.spinBox.value()))  # Генерируем пароль и выводим его в textEdit
             password = self.textEdit.toPlainText()  # Сохраняем сгенерированный пароль в глобальную переменную
+
+        else:
+            showMessageBox(
+                "Danger",
+                "Выберете хотя бы один вид символов!",
+                "Critical")
 
     def loadPaswMngWin(self):
         dialog = PasswordManagerWidget(self)
@@ -65,7 +80,11 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
         sql.execute(f"SELECT login FROM {db_name}")
         for web, login, _ in sql.execute(f"SELECT * FROM {db_name}"): # Пробегаемся по всем строкам
             if login == user_login and web == user_web:  # Если такая пара сайт-логин внесена
-                print(f'Пользователь "{login}" на сервисе "{web}" уже присутсвует в базе!')  # Выдаем ошибку
+                # Выдаем ошибку
+                showMessageBox(
+                    "Danger",
+                    f'Пользователь "{login}" на сервисе "{web}" уже присутсвует в базе!',
+                    "Critical")
                 break
         else:  # А если нет..
             sql.execute(f"INSERT INTO {db_name} VALUES (?, ?, ?)", (user_web, user_login, user_password))  # Вносим :)
