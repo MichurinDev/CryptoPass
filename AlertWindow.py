@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import QMessageBox
 
-def showMessageBox(title, text, icon="NoIcon", buttons=False, buttonsText=[], callback=None):
+
+def showMessageBox(
+        title, text, icon="NoIcon",
+        buttons=False, buttonsText=[], callback=None):
     qmb = QMessageBox()
     qmb.setText(text)
     qmb.setWindowTitle(title)
@@ -15,7 +18,7 @@ def showMessageBox(title, text, icon="NoIcon", buttons=False, buttonsText=[], ca
     if icon == "Question":
         qmb.setIcon(QMessageBox.Question)
 
-    if buttons == True:
+    if buttons:
         qmb.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
         if len(buttonsText) == 2:
             qmb.button(QMessageBox.Ok).setText(buttonsText[0])

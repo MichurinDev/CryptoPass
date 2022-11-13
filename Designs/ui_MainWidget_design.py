@@ -14,7 +14,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(336, 279)
+        MainWindow.resize(321, 279)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("d:\\Prog\\Python\\CryptoPass\\Designs\\../favicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(0.9)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -66,7 +69,7 @@ class Ui_MainWindow(object):
         self.checkBox_6.setFont(font)
         self.checkBox_6.setObjectName("checkBox_6")
         self.spinBox = QtWidgets.QSpinBox(self.frame)
-        self.spinBox.setGeometry(QtCore.QRect(270, 50, 41, 41))
+        self.spinBox.setGeometry(QtCore.QRect(260, 50, 51, 41))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.spinBox.setFont(font)
@@ -79,7 +82,7 @@ class Ui_MainWindow(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(12, 240, 311, 28))
+        self.pushButton_2.setGeometry(QtCore.QRect(12, 240, 301, 28))
         self.pushButton_2.setObjectName("pushButton_2")
         MainWindow.setCentralWidget(self.centralwidget)
 
