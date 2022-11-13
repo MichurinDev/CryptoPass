@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\Prog\Python\CryptoPass\Designs\PasswordManagerWidget_design.ui'
+# Form implementation generated from reading ui file
+# 'd:\Prog\Python\CryptoPass\Designs\PasswordManagerWidget_design.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -14,7 +15,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(424, 529)
+        MainWindow.setFixedSize(424, 529)
         MainWindow.setWindowOpacity(0.9)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -73,6 +74,7 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Password Manager"))
         self.textEdit.setPlaceholderText(_translate("MainWindow", "Web"))
         self.textEdit_2.setPlaceholderText(_translate("MainWindow", "Login"))
-        self.textEdit_3.setPlaceholderText(_translate("MainWindow", "Password"))
+        self.textEdit_3.setPlaceholderText(_translate(
+            "MainWindow", "Password"))
         self.pushButton.setText(_translate("MainWindow", "Add"))
         self.pushButton_2.setText(_translate("MainWindow", "Clear"))

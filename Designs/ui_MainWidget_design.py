@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\Prog\Python\CryptoPass\Designs\MainWidget_design.ui'
+# Form implementation generated from reading ui file
+# 'd:\Prog\Python\CryptoPass\Designs\MainWidget_design.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -14,9 +15,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(321, 279)
+        MainWindow.setFixedSize(321, 279)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("d:\\Prog\\Python\\CryptoPass\\Designs\\../favicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(
+            "d:\\Prog\\Python\\CryptoPass\\Designs\\../favicon.png"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(0.9)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
