@@ -106,8 +106,8 @@ class PasswordManagerWidget(QMainWindow, PswMngWindow):
                 # Выдаем ошибку
                 showMessageBox(
                     "Danger",
-                    f'Пользователь "{login}" на сервисе \
-                        "{web}" уже присутсвует в базе!',
+                    f'Пользователь "{login}" на сервисе'
+                    f'"{web}" уже присутсвует в базе!',
                     "Critical")
                 break
         else:  # А если нет..

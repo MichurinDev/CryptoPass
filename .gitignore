@@ -3,3 +3,8 @@
 
 /.vscode/
 */.vscode/
+
+/build/
+/dist/
+
+/*.spec
