@@ -54,8 +54,16 @@ class MainWidget(QMainWindow, MainWindow):
                 password_generate(
                     symb_line, self.spinBox.value()
                     ))
+
             # Сохраняем сгенерированный пароль в глобальную переменную
             password = self.textEdit.toPlainText()
+    
+            # Записываем в файл с иторией
+            with open(
+                    "HistoryOfPasswordGeneration.txt",
+                    "a",
+                    encoding="utf-8") as history:
+                history.write(f"{password}\n")
 
         else:
             showMessageBox(
