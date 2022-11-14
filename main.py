@@ -57,7 +57,7 @@ class MainWidget(QMainWindow, MainWindow):
 
             # Сохраняем сгенерированный пароль в глобальную переменную
             password = self.textEdit.toPlainText()
-    
+
             # Записываем в файл с иторией
             with open(
                     "HistoryOfPasswordGeneration.txt",
