@@ -1,5 +1,5 @@
 # CryptoPass
-*Project for «Yandex. Lyceum»*
+*Project for «Yandex. Lyceum» | [Project description](https://disk.yandex.ru/i/S6M5R4Z3FZo3mw "Project description")*
 
 CryptoPass is a program for creating a password of any complexity.
 * As an addition, a password manager based on the Sqlite DBMS.
