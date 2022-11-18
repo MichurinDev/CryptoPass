@@ -1,6 +1,7 @@
 # Подгружаем библиотеки
 import sqlite3 as SQL
 import sys
+from pyperclip import copy, paste
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import Qt
@@ -26,6 +27,8 @@ class MainWidget(QMainWindow, MainWindow):
         self.pushButton.clicked.connect(self.generate)
         # Тыкаем - запускается менеджер паролей
         self.pushButton_2.clicked.connect(self.loadPaswMngWin)
+        # Тыкаем - копируем сгенерированный пароль в буфер обмена
+        self.pushButton_3.clicked.connect(self.copyInClipboard)
 
     def generate(self):
         global password
@@ -74,6 +77,9 @@ class MainWidget(QMainWindow, MainWindow):
     def loadPaswMngWin(self):
         dialog = PasswordManagerWidget(self)
         dialog.show()
+
+    def copyInClipboard(self):
+        copy(password)
 
 
 class PasswordManagerWidget(QMainWindow, PswMngWindow):

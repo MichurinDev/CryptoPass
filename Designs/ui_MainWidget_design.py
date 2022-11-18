@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file
-# 'd:\Prog\Python\CryptoPass\Designs\MainWidget_design.ui'
+# Form implementation generated from reading ui file 'd:\Prog\Python\CryptoPass\Designs\MainWidget_design.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -15,18 +14,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.setFixedSize(321, 279)
+        MainWindow.resize(374, 279)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(
-            "d:\\Prog\\Python\\CryptoPass\\Designs\\../favicon.png"),
-            QtGui.QIcon.Normal,
-            QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("d:\\Prog\\Python\\CryptoPass\\Designs\\../favicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(0.9)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 321, 231))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 361, 231))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -85,8 +81,15 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.label.setFont(font)
         self.label.setObjectName("label")
+        self.pushButton_3 = QtWidgets.QPushButton(self.frame)
+        self.pushButton_3.setGeometry(QtCore.QRect(320, 10, 41, 31))
+        self.pushButton_3.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("d:\\Prog\\Python\\CryptoPass\\Designs\\../Images/copy_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_3.setIcon(icon1)
+        self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(12, 240, 301, 28))
+        self.pushButton_2.setGeometry(QtCore.QRect(12, 240, 351, 28))
         self.pushButton_2.setObjectName("pushButton_2")
         MainWindow.setCentralWidget(self.centralwidget)
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>321</width>
+    <width>374</width>
     <height>279</height>
    </rect>
   </property>
@@ -26,7 +26,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>321</width>
+      <width>361</width>
       <height>231</height>
      </rect>
     </property>
@@ -203,13 +203,30 @@
       <string>Characters:</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>10</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../Images/copy_icon.png</normaloff>../Images/copy_icon.png</iconset>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
       <x>12</x>
       <y>240</y>
-      <width>301</width>
+      <width>351</width>
       <height>28</height>
      </rect>
     </property>
