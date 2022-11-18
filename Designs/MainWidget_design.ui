@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,15 +13,24 @@
     <height>279</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>CryptoPass</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../favicon.png</normaloff>../favicon.png</iconset>
+    <normaloff>../Images/favicon.png</normaloff>../Images/favicon.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>0.900000000000000</double>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="frame">
