@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>374</width>
+    <width>322</width>
     <height>279</height>
    </rect>
   </property>
@@ -38,7 +38,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>361</width>
+      <width>321</width>
       <height>231</height>
      </rect>
     </property>
@@ -182,7 +182,7 @@
     <widget class="QSpinBox" name="spinBox">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>180</x>
        <y>50</y>
        <width>51</width>
        <height>41</height>
@@ -200,7 +200,7 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>90</x>
        <y>50</y>
        <width>91</width>
        <height>41</height>
@@ -218,10 +218,10 @@
     <widget class="QPushButton" name="pushButton_3">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>10</y>
-       <width>41</width>
-       <height>31</height>
+       <x>240</x>
+       <y>50</y>
+       <width>71</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -238,7 +238,7 @@
      <rect>
       <x>12</x>
       <y>240</y>
-      <width>351</width>
+      <width>301</width>
       <height>28</height>
      </rect>
     </property>

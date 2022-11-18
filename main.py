@@ -1,7 +1,9 @@
 # Подгружаем библиотеки
 import sqlite3 as SQL
 import sys
-from pyperclip import copy, paste
+from pyperclip import copy
+from win10toast import ToastNotifier
+import time
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import Qt
@@ -80,6 +82,12 @@ class MainWidget(QMainWindow, MainWindow):
 
     def copyInClipboard(self):
         copy(password)
+        toaster.show_toast(
+            "Скопировано",
+            "Сгенерированный пароль скопировани в буфер обмена!",
+            icon_path="Images\\favicon.ico",
+            threaded=True
+        )
 
 
 class PasswordManagerWidget(QMainWindow, PswMngWindow):
@@ -196,6 +204,9 @@ SYMBOLYC_DICTIONARY = [
 
 # Глобальная переменная  паролем, чтобы передавать его между формами
 password = ""
+
+# Создаем экземпляр класса, отвечающий за уведомления
+toaster = ToastNotifier()
 
 # Адаптация под экраны с высоким разрешением
 if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
