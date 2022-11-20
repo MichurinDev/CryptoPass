@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>322</width>
+    <width>321</width>
     <height>279</height>
    </rect>
   </property>
@@ -54,7 +54,7 @@
        <x>10</x>
        <y>10</y>
        <width>221</width>
-       <height>31</height>
+       <height>32</height>
       </rect>
      </property>
     </widget>
@@ -64,7 +64,7 @@
        <x>240</x>
        <y>10</y>
        <width>71</width>
-       <height>31</height>
+       <height>32</height>
       </rect>
      </property>
      <property name="text">
@@ -182,7 +182,7 @@
     <widget class="QSpinBox" name="spinBox">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>260</x>
        <y>50</y>
        <width>51</width>
        <height>41</height>
@@ -200,7 +200,7 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>170</x>
        <y>50</y>
        <width>91</width>
        <height>41</height>
@@ -215,35 +215,35 @@
       <string>Characters:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>50</y>
-       <width>71</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../Images/copy_icon.png</normaloff>../Images/copy_icon.png</iconset>
-     </property>
-    </widget>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
       <x>12</x>
       <y>240</y>
-      <width>301</width>
-      <height>28</height>
+      <width>221</width>
+      <height>32</height>
      </rect>
     </property>
     <property name="text">
      <string>Password Manager</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>240</y>
+      <width>71</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../Images/copy_icon.png</normaloff>../Images/copy_icon.png</iconset>
     </property>
    </widget>
   </widget>

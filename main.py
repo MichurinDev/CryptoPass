@@ -3,7 +3,6 @@ import sqlite3 as SQL
 import sys
 from pyperclip import copy
 from win10toast import ToastNotifier
-import time
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import Qt
