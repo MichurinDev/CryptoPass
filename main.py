@@ -83,7 +83,7 @@ class MainWidget(QMainWindow, MainWindow):
         copy(password)
         toaster.show_toast(
             "Скопировано",
-            "Сгенерированный пароль скопировани в буфер обмена!",
+            "Сгенерированный пароль скопирован в буфер обмена!",
             icon_path="Images\\favicon.ico",
             threaded=True
         )
