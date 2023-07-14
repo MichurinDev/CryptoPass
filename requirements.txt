@@ -1,1 +1,3 @@
 PyQt5
+pyperclip
+win10toast
